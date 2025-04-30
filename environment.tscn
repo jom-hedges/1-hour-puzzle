@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dweaq17jpaiss"]
+
+[ext_resource type="ArrayMesh" uid="uid://di5ff72sprluq" path="res://floor.obj" id="1_tfpvy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3s6c5"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Main" type="Node" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Main"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_3s6c5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Main/StaticBody3D"]
+mesh = ExtResource("1_tfpvy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
+transform = Transform3D(1, 0, 0, 0, 0.91378, 0.40621, 0, -0.40621, 0.91378, -0.211642, 4.99525, 6.62918)
+shadow_enabled = true
