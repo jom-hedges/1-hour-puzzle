@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dweaq17jpaiss"]
+[gd_scene load_steps=5 format=3 uid="uid://dweaq17jpaiss"]
 
 [ext_resource type="ArrayMesh" uid="uid://di5ff72sprluq" path="res://floor.obj" id="1_tfpvy"]
+[ext_resource type="PackedScene" uid="uid://bgwghcgjcsjty" path="res://player.tscn" id="2_3iayr"]
+[ext_resource type="ArrayMesh" uid="uid://pplv1g0gwtiw" path="res://assets/Wall.obj" id="3_tsubf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3s6c5"]
 
@@ -20,3 +22,10 @@ mesh = ExtResource("1_tfpvy")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
 transform = Transform3D(1, 0, 0, 0, 0.91378, 0.40621, 0, -0.40621, 0.91378, -0.211642, 4.99525, 6.62918)
 shadow_enabled = true
+
+[node name="Player" parent="Main" instance=ExtResource("2_3iayr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531261, 0)
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999975, -0.00705102, 0, 0.00705102, 0.999975, -6.08762, 1.40098, 2.1603)
+mesh = ExtResource("3_tsubf")

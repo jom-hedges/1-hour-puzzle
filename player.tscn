@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgwghcgjcsjty"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_b0i6g"]
+[ext_resource type="ArrayMesh" uid="uid://c784k2773ek2d" path="res://assets/PlayerModel.obj" id="1_uxayw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wx8tx"]
+size = Vector3(1, 0.982422, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_b0i6g")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" type="MeshInstance3D" parent="Pivot"]
+mesh = ExtResource("1_uxayw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1.75, 0, 0, 0, 0.5, 0, 0.878633, 0)
+shape = SubResource("BoxShape3D_wx8tx")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06379, 1.87501)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SpringArm3D"]
